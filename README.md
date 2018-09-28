@@ -1,66 +1,94 @@
-# BPI-BIT-Arduino_IDE
+# BPI-BIT-Arduino_IDE [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](./LICENSE)
 
-## Installation Instructions:
 
-+ ### Arduino IDE
-    [Arduino IDE Download](https://www.arduino.cc/en/Main/Software)
+----------------------------------------------------------
+- **[drive](./drive)**:存放Windows/Linux/MAC OS驱动程序
+----------------------------------------------------------
 
-+ ### ESP32 Development Kit
+- **[example](./example)**:存放了BPI-BIT的Arduino示例代码
+  + [BuzzerFeeding](./example/BuzzerFeeding):控制蜂鸣器鸣叫声音的频率逐渐加强
+  + [Key-LED](./example/Key-LED):通过按键A控制在LED面板上亮3颗LED
+  + [UnitTest](./example/UnitTest):BIT板基本功能测试
+----------------------------------------------------------
 
-    #### Development Repository:
-    > From [espressif/arduino-esp32](https://github.com/espressif/arduino-esp32)
 
-    - Using Arduino IDE Boards Manager (preferred)
-      + [Instructions for Boards Manager](docs/boards_manager.md)
-    - Using Arduino IDE with the development repository
-      + [Instructions for Windows](docs//windows.md)
-      + [Instructions for Mac](docs/mac.md)
-      + [Instructions for Debian/Ubuntu Linux](docs/debian_ubuntu.md)
-      + [Instructions for Fedora](docs/fedora.md)
-      + [Instructions for openSUSE](docs/opensuse.md)
+## Pin Define 引脚定义
 
-## Pin Define
+| Pin Name | Analog Function1 | Analog Function2 | Function1 | Function2 | Power     |
+| -------- | ---------------- | ---------------- | --------- | --------- | --------- |
+| P3       | ADC2\_CH4        |                  | GPIO13    |           |           |
+| P0       | ADC2\_CH8        | DAC\_1           | GPIO25    |           |           |
+| P4       | ADC2\_CH3        |                  | GPIO15    |           |           |
+| P5       | ADC1\_CH7        |                  | GPIO35    |           |           |
+| P6       | ADC2\_CH5        |                  | GPIO12    |           |           |
+| P7       | ADC2\_CH6        |                  | GPIO14    |           |           |
+| P1       | ADC1\_CH4        |                  | GPIO32    |           |           |
+| P8       |                  |                  | GPIO16    |           |           |
+| P9       |                  |                  | GPIO17    |           |           |
+| P10      | ADC2\_CH9        | DAC\_2           | GPIO26    |           |           |
+| P11      | ADC2\_CH7        |                  | GPIO27    |           |           |
+| P12      | ADC2\_CH2        |                  | GPIO02    |           |           |
+| P2       | ADC1\_CH5        |                  | GPIO33    |           |           |
+| P13      |                  |                  | GPIO18    | SPI\_SCK  |           |
+| P14      |                  |                  | GPIO19    | SPI\_MISO |           |
+| P15      |                  |                  | GPIO23    | SPI\_MOSI |           |
+| P16      |                  |                  | GPIO05    | SPI\_SS   |           |
+| 3V3      |                  |                  |           |           | POWER:3V3 |
+| 3V3      |                  |                  |           |           | POWER:3V3 |
+| 3V3      |                  |                  |           |           | POWER:3V3 |
+| P19      |                  |                  | GPIO22    | I2C\_SCL  |           |
+| P20      |                  |                  | GPIO21    | I2C\_SDA  |           |
+| GND      |                  |                  |           |           | GROUND    |
+| GND      |                  |                  |           |           | GROUND    |
+| GND      |                  |                  |           |           | GROUND    |
 
-<table>
-  <tr><td>Pin Name</td><td>Analog Function1</td><td>BIT Function</td><td>Function1</td><td>Function2</td><td>Power</td></tr>
-  <tr><td>P3</td><td>ADC2_CH4</td><td></td><td>GPIO13</td><td></td><td></td></tr>
-  <tr><td>P0</td><td>ADC2_CH8/DAC1</td><td>BUZZER</td><td>GPIO25</td><td></td><td></td></tr>
-  <tr><td>P4</td><td>ADC2_CH3</td><td>INT-9250</td><td>GPIO16</td><td></td><td></td></tr>
-  <tr><td>P5</td><td>ADC1_CH7</td><td>BOTTON A</td><td>GPI 35</td><td></td><td></td></tr>
-  <tr><td>P6</td><td>ADC2_CH5</td><td></td><td>GPIO12</td><td></td><td></td></tr>
-  <tr><td>P7</td><td>ADC2_CH6</td><td></td><td>GPIO14</td><td></td><td></td></tr>
-  <tr><td>P1</td><td>ADC1_CH4</td><td></td><td>GPIO32</td><td></td><td></td></tr>
-  <tr><td>P8</td><td></td><td></td><td>GPIO16</td><td></td><td></td></tr>
-  <tr><td>P9</td><td></td><td></td><td>GPIO17</td><td></td><td></td></tr>
-  <tr><td>P10</td><td>ADC2_CH9/DAC2</td><td></td><td>GPIO26</td><td></td><td></td></tr>
-  <tr><td>P11</td><td>ADC2_CH7</td><td>BOTTON B</td><td>GPIO27</td><td></td><td></td></tr>
-  <tr><td>P12</td><td>ADC2_CH2</td><td></td><td>GPIO02</td><td></td><td></td></tr>
-  <tr><td>P2</td><td>ADC1_CH5</td><td></td><td>GPIO33</td><td></td><td></td></tr>
-  <tr><td>P13</td><td></td><td></td><td>GPIO18</td><td>SPI_SCK</td><td></td></tr>
-  <tr><td>P14</td><td></td><td></td><td>GPIO19</td><td>SPI_MISO</td><td></td></tr>
-  <tr><td>P15</td><td></td><td></td><td>GPIO23</td><td>SPI_MOSI</td><td></td></tr>
-  <tr><td>P16</td><td></td><td></td><td>GPIO05</td><td>SPI_SS</td><td></td></tr>
-  <tr><td>3V3</td><td></td><td></td><td></td><td></td><td>POWER:3V3</td></tr>
-  <tr><td>3V3</td><td></td><td></td><td></td><td></td><td>POWER:3V3</td></tr>
-  <tr><td>3V3</td><td></td><td></td><td></td><td></td><td>POWER:3V3</td></tr>
-  <tr><td>P19</td><td></td><td></td><td>GPIO22</td><td>I2C_SCL</td><td></td></tr>
-  <tr><td>P20</td><td></td><td></td><td>GPIO21</td><td>I2C_SDA</td><td></td></tr>
-  <tr><td>GND</td><td></td><td></td><td></td><td></td><td>GROUND</td></tr>
-  <tr><td>GND</td><td></td><td></td><td></td><td></td><td>GROUND</td></tr>
-  <tr><td>GND</td><td></td><td></td><td></td><td></td><td>GROUND</td></tr>
-</table>
+## LED序号
 
-## Onboard peripherals
+| ↖  |  ↑  |  ↑  |  ↑  |  ↗ |
+|-----|-----|-----|-----|-----|
+| 20  | 15  | 10  | 5   | 0   |
+| 21  | 16  | 11  | 6   | 1   |
+| 22  | 17  | 12  | 7   | 2   |
+| 23  | 18  | 13  | 8   | 3   |
+| 24  | 19  | 14  | 9   | 4   |
+| ↙  |  ↓  |  ↓  |  ↓  |  ↘ |
 
-<table>
-  <tr>  <td></td>  <td>IO</td>  <td>Mode</td>    </tr>
-  <tr>  <td>Light Sensor(L)</td>  <td>GPI 36</td>    <td>Analog Input</td>  </tr>
-  <tr>  <td>Light Sensor(R)</td>  <td>GPI 39</td>    <td>Analog Input</td>  </tr>
-  <tr>  <td>Temperature Sensor</td>  <td>GPI 34</td>   <td>Analog Input</td>  </tr>
-  <tr>  <td>Buzzer</td>  <td>GPIO 25</td>  <td>PWM(Digital Output) / Analog Output</td>    </tr>
-  <tr>  <td>RGB_LED</td>  <td>GPIO 4</td>   <td>Digital Output</td>  </tr>
-  <tr>  <td>MPU9250_SCL</td>  <td>GPI 22</td>   <td>Digital Output</td>  </tr>
-  <tr>  <td>MPU9250_SDA</td>  <td>GPI 21</td>   <td>Digital Output</td>  </tr>
-  <tr>  <td>MPU9250_INT</td>  <td>GPI 16</td>   <td>Digital Input</td>  </tr>
-  <tr>  <td>R_LED(SPI_SCK)</td>  <td>GPI 18</td>   <td>Digital Output</td>  </tr>
-</table>
+## Onboard peripherals 板载外设
+
+| Onboard peripherals| Interface| Pin Mode                            |
+|:------------------:|:--------:|:------------------------------------|
+| Light Sensor(L)    | GPIO 36  | Analog Input                        |
+| Light Sensor(R)    | GPIO 39  | Analog Input                        |
+| Botton A           | GPIO 35  | Digital Input                       |
+| Botton B           | GPIO 27  | Digital Input                       |
+| Temperature Sensor | GPIO 34  | Analog Input                        |
+| Buzzer             | GPIO 25  | PWM(Digital Output) / Analog Output |
+| RGB_LED            | GPIO 4   | Digital Output                      |
+| MPU9250_SCL        | GPIO 22  | Digital Output                      |
+| MPU9250_SDA        | GPIO 21  | Digital Output                      |
+| MPU9250_INT        | GPIO 16  | Digital Input                       |
+| R_LED(SPI_SCK)     | GPIO 18  | Digital Output                      |
+
+## pins_arduino.h
+
+|Sspecial Name       | GPIO| |Name|GPIO|
+|:------------------:|:---:|-|:--:|:--:|
+| BUZZER             | 25  | | P0 | 25 |
+| BUTTON_A           | 35  | | P1 | 32 |
+| BUTTON_B           | 27  | | P2 | 33 |
+| RGB_LED            | 04  | | P3 | 13 |
+| LIGHT_SENSOR1      | 36  | | P4 | 15 |
+| LIGHT_SENSOR2      | 39  | | P5 | 35 |
+| TEMPERATURE_SENSOR | 34  | | P6 | 12 |
+| MPU9250_INT        | 16  | | P7 | 14 |
+|                    |     | | P8 | 16 |
+| SDA                | 21  | | P9 | 17 |
+| SCL                | 22  | | P10| 26 |
+|                    |     | | P11| 27 |
+| SS                 | 05  | | P12| 02 |
+| MOSI               | 23  | | P13| 18 |
+| MISO               | 19  | | P14| 19 |
+| SCK                | 18  | | P15| 23 |
+|                    |     | | P16| 05 |
+| DAC1               | 26  | | P19| 22 |
+| DAC2               | 25  | | P20| 21 |
