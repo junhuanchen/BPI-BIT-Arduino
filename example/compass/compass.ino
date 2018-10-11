@@ -1,7 +1,17 @@
-
+/****************************************
+ * Board    :BPI-BIT                    *
+ * Hardware :v1.2&v1.4                  *
+ * function :Magnetometer Compass       *
+ * IDE      :Arduino                    * 
+ *                                 hulk *
+ ****************************************/
 #include "MPU9250.h"
 
-MPU9250 IMU(i2c0, 0x68);
+MPU9250 IMU(i2c0, 0x68);//V1.4
+//we need to modify the I2C address according to the hardware.
+//Hardware Version 1.2   >MPU9250 IMU(i2c0, 0x68);<
+//Hardware Version 1.4   >MPU9250 IMU(i2c0, 0x69);<
+
 int status;
 
 void setup()
@@ -46,8 +56,7 @@ void loop()
   //   // IMU.getAccelX_mss(), IMU.getAccelX_mss(), IMU.getAccelY_mss(), IMU.getAccelZ_mss(), IMU.getGyroX_rads(), IMU.getGyroY_rads(), IMU.getGyroZ_rads(), 
   //   IMU.getMagX_uT(), IMU.getMagY_uT(), IMU.getMagZ_uT(), float(atan2(IMU.getMagY_uT(), IMU.getMagX_uT())) * RAD_TO_DEG
   // );
-  Serial.printf("\r\n Yaw %.6f ", 
-    float(atan2(IMU.getMagY_uT(), IMU.getMagX_uT())) * RAD_TO_DEG
-  );
+  
+  Serial.printf("\r\n Yaw %.6f ", float(atan2(IMU.getMagY_uT(), IMU.getMagX_uT())) * RAD_TO_DEG);
   delay(20);
 }
