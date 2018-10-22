@@ -9,6 +9,7 @@
   + [BuzzerFeeding](./example/BuzzerFeeding):控制蜂鸣器鸣叫声音的频率逐渐加强
   + [Key-LED](./example/Key-LED):通过按键A控制在LED面板上亮3颗LED
   + [UnitTest](./example/UnitTest):BIT板基本功能测试
+  + [compass](./example/compass):BIT板板载MPU9250 Master Mode 指北针示例代码
 ----------------------------------------------------------
 
 
