@@ -1,4 +1,4 @@
-# BPI-BIT-Arduino_IDE [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](./LICENSE)
+# BPI-BIT-Arduino_IDE [![MIT](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](./LICENSE)
 
 
 ----------------------------------------------------------
