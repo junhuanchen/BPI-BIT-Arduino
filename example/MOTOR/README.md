@@ -14,6 +14,7 @@ Motor A和Motor D连接电机：两个电机同时以25%占空比正转或者反
 
 - 电机接口与IIC扩展芯片(PCA9685)对应的脚位
   IN1和IN2控制电机正反转，PWM负责电机的占空比。
+  
   |Motor   |Interface|Motor   |Interface|
   |:------:|:-------:|:------:|:-------:|
   |Motor A | PWM:0   |Motor B | PWM:3   |
